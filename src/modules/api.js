@@ -25,7 +25,7 @@ function getDeviceId() {
 function buildAuthHeader() {
   return `MediaBrowser ,` +
     `Client="Jellyflow", ` +
-    `Version="1.3.0", ` +
+    `Version="${__APP_VERSION__}", ` +
     `DeviceId="${getDeviceId()}", ` +
     `Device="Web"`;
 }
