@@ -23,11 +23,15 @@ function getDeviceId() {
 }
 
 function buildAuthHeader() {
+
+  const deviceID = getDeviceId();
+  const device = "Web";
+
   return `MediaBrowser ,` +
     `Client="${__APP_NAME__}", ` +
     `Version="${__APP_VERSION__}", ` +
-    `DeviceId="${getDeviceId()}", ` +
-    `Device="Web"`;
+    `DeviceId="${deviceID}", ` +
+    `Device="${device}"`;
 }
 
 function headers() {
