@@ -23,7 +23,11 @@ function getDeviceId() {
 }
 
 function buildAuthHeader() {
-  return `MediaBrowser Client="Jellyflow", Device="Web", DeviceId="${getDeviceId()}", Version="1.0.0"`;
+  return `MediaBrowser ,` +
+    `Client="Jellyflow", ` +
+    `Version="1.0.0", ` +
+    `DeviceId="${getDeviceId()}", ` +
+    `Device="Web"`;
 }
 
 function headers() {
