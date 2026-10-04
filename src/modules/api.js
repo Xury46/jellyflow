@@ -44,18 +44,12 @@ function buildAuthHeader() {
   }
 }
 
-function headers() {
-  return {
-    "Content-Type": "application/json",
-    "X-Emby-Token": state.apiKey,
-  };
-}
-
 async function request(path, options = {}) {
   const response = await fetch(`${state.serverUrl}${path}`, {
     ...options,
     headers: {
-      ...headers(),
+    "Content-Type": "application/json",
+    "Authorization": buildAuthHeader(),
       ...(options.headers || {}),
     },
   });
@@ -71,7 +65,7 @@ export async function authenticateByName(serverUrl, username, password) {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
-      "X-Emby-Authorization": buildAuthHeader(),
+      "Authorization": buildAuthHeader(),
     },
     body: JSON.stringify({
       Username: username,
