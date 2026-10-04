@@ -27,11 +27,21 @@ function buildAuthHeader() {
   const deviceID = getDeviceId();
   const device = "Web";
 
-  return `MediaBrowser ,` +
-    `Client="${__APP_NAME__}", ` +
-    `Version="${__APP_VERSION__}", ` +
-    `DeviceId="${deviceID}", ` +
-    `Device="${device}"`;
+  if (state.apiKey) {
+    return `MediaBrowser ,` +
+      `Token="${state.apiKey}", ` +
+      `Client="${__APP_NAME__}", ` +
+      `Version="${__APP_VERSION__}", ` +
+      `DeviceId="${deviceID}", ` +
+      `Device="${device}"`;
+  }
+  else {
+    return `MediaBrowser ,` +
+      `Client="${__APP_NAME__}", ` +
+      `Version="${__APP_VERSION__}", ` +
+      `DeviceId="${deviceID}", ` +
+      `Device="${device}"`;
+  }
 }
 
 function headers() {
