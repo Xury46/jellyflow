@@ -43,6 +43,7 @@ export default defineConfig(({ mode }) => {
 
   return {
     define: {
+      '__APP_NAME__': JSON.stringify(pkg.name),
       '__APP_VERSION__': JSON.stringify(pkg.version),
     },
     plugins,
